@@ -3,22 +3,25 @@ pragma solidity ^0.8.9;
 
 //import "hardhat/console.sol";
 
-contract Assessment {
-    address payable public owner;
+contract Assessment 
+{
     uint256 public balance;
 
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
 
-    constructor(uint initBalance) payable {
+    constructor(uint initBalance) payable 
+    {
         balance = initBalance;
     }
 
-    function getBalance() public view returns(uint256){
+    function getBalance() public view returns(uint256)
+    {
         return balance;
     }
 
-    function deposit(uint256 _amount) public payable {
+    function deposit(uint256 _amount) public payable 
+    {
         uint _previousBalance = balance;
 
         // make sure this is the owner
@@ -36,10 +39,13 @@ contract Assessment {
     // custom error
     error InsufficientBalance(uint256 balance, uint256 withdrawAmount);
 
-    function withdraw(uint256 _withdrawAmount) public {
+    function withdraw(uint256 _withdrawAmount) public 
+    {
         uint _previousBalance = balance;
-        if (balance < _withdrawAmount) {
-            revert InsufficientBalance({
+        if (balance < _withdrawAmount) 
+        {
+            revert InsufficientBalance
+        ({
                 balance: balance,
                 withdrawAmount: _withdrawAmount
             });
@@ -54,4 +60,4 @@ contract Assessment {
         // emit the event
         emit Withdraw(_withdrawAmount);
     }
-}
+    }    
