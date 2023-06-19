@@ -78,12 +78,12 @@ export default function HomePage() {
   const initUser = () => {
     // Check to see if user has Metamask
     if (!ethWallet) {
-      return <p>Please install Metamask in order to use this ATM.</p>
+      return <p>Unlock the full potential of the Web 3.0 (ATM) by harnessing the power of Metamask! Install Metamask now and embark on an unparalleled digital banking experience.</p>
     }
 
     // Check to see if user is connected. If not, connect to their account
     if (!account) {
-      return <button onClick={connectAccount}>Please connect your Metamask wallet</button>
+      return <button onClick={connectAccount}>Embark on a secure and seamless journey with your Metamask wallet by clicking on me to connect effortlessly</button>
     }
 
     if (balance == undefined) {
@@ -92,8 +92,8 @@ export default function HomePage() {
 
     return (
       <div>
-        <p>Your Account: {account}</p>
-        <p>Your Balance: {balance}</p>
+        <p>Your Web 3.0 Account ID: {account}</p>
+        <p>Your Web 3.0 Account Balance: {balance}</p>
         <button onClick={deposit}>Deposit 1 ETH</button>
         <button onClick={withdraw}>Withdraw 1 ETH</button>
       </div>
@@ -104,7 +104,7 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>Welcome to the Future of Banking: The Web 3.0 ATM Experience!</h1></header>
       {initUser()}
       <style jsx>{`
         .container {
