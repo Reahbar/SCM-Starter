@@ -11,7 +11,6 @@ contract Assessment {
     event Withdraw(uint256 amount);
 
     constructor(uint initBalance) payable {
-        owner = payable(msg.sender);
         balance = initBalance;
     }
 
@@ -23,7 +22,6 @@ contract Assessment {
         uint _previousBalance = balance;
 
         // make sure this is the owner
-        require(msg.sender == owner, "You are not the owner of this account");
 
         // perform transaction
         balance += _amount;
@@ -39,7 +37,6 @@ contract Assessment {
     error InsufficientBalance(uint256 balance, uint256 withdrawAmount);
 
     function withdraw(uint256 _withdrawAmount) public {
-        require(msg.sender == owner, "You are not the owner of this account");
         uint _previousBalance = balance;
         if (balance < _withdrawAmount) {
             revert InsufficientBalance({
